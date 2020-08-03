@@ -9,32 +9,25 @@
     padding: 3rem 1rem 5rem;
   }
 
-  &:nth-child(3n + 1):not(:only-child) {
-    --bg-color: @white;
+  &:nth-child(2n + 1):not(:only-child) {
+    --bg-color: @grey;
     --font-color: @darkCyan;
     --secondary-color: @darkerCyan;
     --text-on-secondary-color: @white;
-    background-color: @white;
-    color: @darkCyan;
+    background-color: @grey;
+    color: @darkerCyan;
 
     &.sectionNewsletter {
       background-image: url('./backgrounds/newsletter_red.svg');
     }
   }
 
-  &:nth-child(3n + 2) {
-    --bg-color: @greyBright;
-    --font-color: @darkCyan;
-    background-color: @greyBright;
-    color: @darkCyan;
-  }
-
-  &:nth-child(3n + 3),
+  &:nth-child(2n + 2),
   &:only-child {
-    --bg-color: @greyBright;
+    --bg-color: @white;
     --font-color: @darkCyan;
-    background-color: @grey;
-    color: @darkerCyan;
+    background-color: @white;
+    color: @darkCyan;
   }
 
   &:nth-child(3n + 1):not(:only-child),
