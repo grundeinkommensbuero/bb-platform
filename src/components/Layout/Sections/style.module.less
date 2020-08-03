@@ -10,12 +10,12 @@
   }
 
   &:nth-child(3n + 1):not(:only-child) {
-    --bg-color: @yellow;
-    --font-color: @red;
-    --secondary-color: @blueBright;
-    --text-on-secondary-color: @yellow;
-    background-color: @yellow;
-    color: @red;
+    --bg-color: @white;
+    --font-color: @darkCyan;
+    --secondary-color: @darkerCyan;
+    --text-on-secondary-color: @white;
+    background-color: @white;
+    color: @darkCyan;
 
     &.sectionNewsletter {
       background-image: url('./backgrounds/newsletter_red.svg');
@@ -23,18 +23,18 @@
   }
 
   &:nth-child(3n + 2) {
-    --bg-color: @red;
-    --font-color: @greyBright;
-    background-color: @red;
-    color: @greyBright;
+    --bg-color: @greyBright;
+    --font-color: @darkCyan;
+    background-color: @greyBright;
+    color: @darkCyan;
   }
 
   &:nth-child(3n + 3),
   &:only-child {
-    --bg-color: @grey;
-    --font-color: @red;
+    --bg-color: @greyBright;
+    --font-color: @darkCyan;
     background-color: @grey;
-    color: @red;
+    color: @darkerCyan;
   }
 
   &:nth-child(3n + 1):not(:only-child),
@@ -364,7 +364,7 @@
 }
 
 .heroImageOverlay {
-  background: @yellow;
+  background: @white;
   position: absolute;
   top: 0;
   left: 0;
@@ -374,7 +374,7 @@
 }
 
 .sectionWithHeroImage {
-  text-shadow: 0 0 0.8rem fade(@yellow, 90);
+  text-shadow: 0 0 0.8rem fade(@white, 90);
   min-height: 30vw;
   display: flex;
   align-items: flex-end;

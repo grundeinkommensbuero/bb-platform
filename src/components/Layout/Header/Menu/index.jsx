@@ -4,7 +4,6 @@ import cN from 'classnames';
 import s from './style.module.less';
 import { MenuItemLink } from './MenuItem';
 import MenuItemParent from './MenuItemParent';
-import LoginMenuItem from './LoginMenuItem';
 
 const Menu = ({ menu, menuOpen }) => {
   return (
@@ -30,7 +29,6 @@ const Menu = ({ menu, menuOpen }) => {
           );
         }
       })}
-      <LoginMenuItem />
     </ul>
   );
 };
