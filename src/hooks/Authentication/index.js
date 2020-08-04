@@ -53,6 +53,9 @@ const signUp = async (data, setState, { setUserId, setTempEmail }) => {
     const { userSub: userId } = await Auth.signUp({
       username: data.email.toLowerCase(),
       password: getRandomString(30),
+      attributes: {
+        'custom:source': 'bb-platform',
+      },
     });
 
     data.referral = getReferral();

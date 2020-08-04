@@ -5,7 +5,6 @@
 
 import { useState, useContext } from 'react';
 import CONFIG from '../../../../../aws-config';
-import { updateUser } from '../../Users/Update';
 import AuthContext from '../../../../context/Authentication';
 
 /*
