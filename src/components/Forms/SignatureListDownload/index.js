@@ -9,7 +9,6 @@ import { FinallyMessage } from '../FinallyMessage';
 import { StepListItem } from '../../StepList';
 import { useCreateSignatureList } from '../../../hooks/Api/Signatures/Create';
 import { useSignUp } from '../../../hooks/Authentication';
-import { EnterLoginCode } from '../../Login/EnterLoginCode';
 import AuthContext from '../../../context/Authentication';
 import AuthInfo from '../../AuthInfo';
 import DownloadListsNextSteps from '../DownloadListsNextSteps';

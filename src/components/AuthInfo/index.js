@@ -9,14 +9,15 @@ export default () => {
   const { customUserData } = useContext(AuthContext);
   const signOut = useSignOut();
 
+  console.log(customUserData);
+
   return (
     <>
-      {/* TODO: Change text to not refer to registration but past actions */}
-      Du bist angemeldet als{' '}
-      {customUserData && (customUserData.username || customUserData.email)}. Du
-      bist jemand anderes?{' '}
+      {/* TODO: Improve the text so that it's clear for users */}
+      Du wirst die Liste mit der E-Mail-Adresse{' '}
+      {customUserData && customUserData.email} herunterladen.{' '}
       <InlineButton onClick={signOut} type="button">
-        Hier klicken zum Abmelden.
+        Hier klicken um eine andere E-Mail-Adresse zu benutzen.
       </InlineButton>
     </>
   );
