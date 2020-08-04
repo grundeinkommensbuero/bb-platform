@@ -30,43 +30,6 @@
     color: @darkCyan;
   }
 
-  &:nth-child(3n + 1):not(:only-child),
-  &:nth-child(3n + 3),
-  &:only-child {
-    &.sectionCrowdCollect,
-    &.sectionConfetti {
-      background-image: url('./backgrounds/crowd_collect_blue_desktop.svg');
-
-      @media (max-width: 900px) {
-        background-image: url('./backgrounds/crowd_collect_blue_mobile.svg');
-      }
-    }
-
-    &.sectionCrowdTravel {
-      background-image: url('./backgrounds/crowd_travel_blue_desktop.svg');
-
-      @media (max-width: 900px) {
-        background-image: url('./backgrounds/crowd_travel_blue_mobile.svg');
-      }
-    }
-
-    &.sectionCrowdQuestion {
-      background-image: url('./backgrounds/crowd_question_blue_desktop.svg');
-
-      @media (max-width: 900px) {
-        background-image: url('./backgrounds/crowd_question_blue_mobile.svg');
-      }
-    }
-  }
-
-  &:nth-child(3n + 2),
-  &:nth-child(3n + 3),
-  &:only-child {
-    &.sectionNewsletter {
-      background-image: url('./backgrounds/newsletter_yellow.svg');
-    }
-  }
-
   &Video {
     padding-bottom: 5rem;
 
