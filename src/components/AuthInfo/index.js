@@ -11,6 +11,7 @@ export default () => {
 
   return (
     <>
+      {/* TODO: Change text to not refer to registration but past actions */}
       Du bist angemeldet als{' '}
       {customUserData && (customUserData.username || customUserData.email)}. Du
       bist jemand anderes?{' '}

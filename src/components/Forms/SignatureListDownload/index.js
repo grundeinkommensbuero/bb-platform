@@ -20,10 +20,7 @@ export default ({ signaturesId }) => {
   const [state, pdf, anonymous, createPdf] = useCreateSignatureList();
   const [signUpState, signUp] = useSignUp();
   const [email, setEmail] = useState();
-  const [loginCodeRequested, setLoginCodeRequested] = useState();
-  const { isAuthenticated, userId } = useContext(AuthContext);
-  const iconMail = require('./mail_red.svg');
-  const iconIncognito = require('./incognito_red.svg');
+  const { userId } = useContext(AuthContext);
 
   useEffect(() => {
     // If user was registered proceed by creating list
@@ -33,47 +30,9 @@ export default ({ signaturesId }) => {
       createPdf({
         email,
         campaignCode: signaturesId,
-        userExists: true,
       });
     }
   }, [signUpState]);
-
-  useEffect(() => {
-    // Create pdf if user has authenticated after requesting their login code.
-    if (isAuthenticated && typeof loginCodeRequested !== 'undefined') {
-      createPdf({
-        campaignCode: signaturesId,
-        userExists: true,
-        // We only want to update the user's newsletter consent,
-        // if they did not come from identified stage (loginCodeRequested = false)
-        shouldNotUpdateUser: loginCodeRequested,
-      });
-    }
-  }, [isAuthenticated, loginCodeRequested]);
-
-  // If user is not authorised after entering email, or if they are identified and request the list
-  if (
-    state === 'unauthorized' ||
-    (loginCodeRequested && !isAuthenticated && !anonymous)
-  ) {
-    return (
-      <EnterLoginCode>
-        <p>
-          Hey, wir kennen dich schon! Bitte gib den Code ein, den wir dir gerade
-          in einer E-Mail geschickt haben. Alternativ kannst du auch eine Liste{' '}
-          <InlineButton
-            onClick={() => {
-              createPdf({ campaignCode: signaturesId, anonymous: true });
-            }}
-            type="button"
-          >
-            hier
-          </InlineButton>{' '}
-          anonym herunterladen.
-        </p>
-      </EnterLoginCode>
-    );
-  }
 
   if (state === 'creating') {
     return (
@@ -93,6 +52,7 @@ export default ({ signaturesId }) => {
       <FinallyMessage state="error">
         Da ist was schief gegangen. Melde dich bitte bei uns{' '}
         <a href="mailto:support@expedition-grundeinkommen.de">
+          {/* TODO: Change email */}
           support@expedition-grundeinkommen.de
         </a>
         .
@@ -143,26 +103,14 @@ export default ({ signaturesId }) => {
     <>
       <Form
         onSubmit={e => {
-          // If user is authenticated
-          if (isAuthenticated) {
-            createPdf({
-              campaignCode: signaturesId,
-              userExists: true,
-              shouldNotUpdateUser: true,
-            });
-            return;
-          }
-
           // If user is identified
-          if (userId) {
-            // Show EnterLoginCode
-            setLoginCodeRequested(true);
+          if (userId !== undefined) {
+            // If user is authenticated
+            createPdf({ campaignCode: signaturesId });
             return;
-          } else {
-            setLoginCodeRequested(false);
           }
 
-          // If user is not identified
+          // If user is not identified, attempt to create user
           setEmail(e.email);
           signUp({ newsletterConsent: true, ...e });
         }}
@@ -173,7 +121,7 @@ export default ({ signaturesId }) => {
               {!userId ? (
                 <>
                   <p className={s.hint}>
-                    Schickt mir die Unterschriftenliste, erinnert mich an das
+                    Schickt mir die Unterschriftenliste, erinnert mich an das 3
                     Zurücksenden und haltet mich auf dem Laufenden.
                   </p>
                   <div className={s.textInputContainer}>
@@ -192,58 +140,23 @@ export default ({ signaturesId }) => {
                   </p>
                 </FinallyMessage>
               )}
-              <CTAButtonContainer illustration="POINT_RIGHT">
+              <CTAButtonContainer>
                 <CTAButton type="submit">Her mit den Listen</CTAButton>
               </CTAButtonContainer>
-
-              {!isAuthenticated && (
-                <>
-                  <div className={s.iconParagraph}>
-                    <img
-                      aria-hidden="true"
-                      alt=""
-                      src={iconIncognito}
-                      className={s.icon}
-                    />
-
-                    <p>
-                      Du willst deine E-Mail-Adresse nicht angeben? Du kannst
-                      die Liste{' '}
-                      <InlineButton
-                        onClick={() => {
-                          createPdf({ campaignCode: signaturesId });
-                        }}
-                        type="button"
-                      >
-                        hier auch anonym herunterladen.
-                      </InlineButton>{' '}
-                      Allerdings können wir dich dann nicht informieren, wenn
-                      deine Unterschriften bei uns eingegangen sind!
-                    </p>
-                  </div>
-                </>
-              )}
-
-              <div className={s.iconParagraph}>
-                <img
-                  aria-hidden="true"
-                  alt=""
-                  src={iconMail}
-                  className={s.icon}
-                />
-
-                <p>
-                  Kein Drucker?{' '}
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://expeditionbge.typeform.com/to/Dq3SOi"
-                  >
-                    Bitte schickt mir Unterschriftenlisten per Post
-                  </a>
-                  !
-                </p>
-              </div>
+              <p className={s.anonymousDownload}>
+                Du willst deine E-Mail-Adresse nicht angeben? Du kannst die
+                Liste{' '}
+                <InlineButton
+                  onClick={() => {
+                    createPdf({ campaignCode: signaturesId });
+                  }}
+                  type="button"
+                >
+                  hier auch anonym herunterladen.
+                </InlineButton>{' '}
+                Allerdings können wir dich dann nicht informieren, wenn deine
+                Unterschriften bei uns eingegangen sind!
+              </p>
             </form>
           );
         }}

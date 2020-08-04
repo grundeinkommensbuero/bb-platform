@@ -68,7 +68,7 @@ const createSignatureListAnonymous = async (
 // Function to create (or get) a signature list
 // userId or email is passed
 const createSignatureList = async (
-  { userId, email, campaignCode, userExists, token, shouldNotUpdateUser },
+  { userId, email, campaignCode },
   setState,
   setPdf
 ) => {
@@ -77,20 +77,8 @@ const createSignatureList = async (
 
     const data = { userId, email, campaignCode };
 
-    // if it is not a new user, we want to update the user to set the newsletter consent
-    // but only if there is a token (user has logged in to set newsletter consent)
-    // and if the user did not already had a session going in
-    if (userExists && token && !shouldNotUpdateUser) {
-      await updateUser({ userId, newsletterConsent: true, token });
-    }
-
-    //call function to make api request, returns signature list if successful (throws error otherwise)
-    const signatureList = await makeApiCall(
-      data,
-      shouldNotUpdateUser,
-      userId,
-      token
-    );
+    // call function to make api request, returns signature list if successful (throws error otherwise)
+    const signatureList = await makeApiCall(data);
 
     setState('created');
     setPdf(signatureList);
@@ -104,27 +92,19 @@ const createSignatureList = async (
   }
 };
 
-// Function which calls our api to create a (new) signature list
-// Depending on whether or not the user already was authenticated,
-// we use a different endpoint, because the /signatures endpoint returns 401,
-// if user does not have newsletter consent
-
 // Returns the list {id, url} or null
-const makeApiCall = async (data, shouldNotUpdateUser, userId, token) => {
+const makeApiCall = async data => {
   // Make api call to create new singature list and get pdf
   const request = {
     method: 'POST',
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: token,
     },
     body: JSON.stringify(data),
   };
 
-  const endpoint = shouldNotUpdateUser
-    ? `/users/${userId}/signatures`
-    : '/signatures';
+  const endpoint = '/signatures';
 
   const response = await fetch(`${CONFIG.API.INVOKE_URL}${endpoint}`, request);
   const json = await response.json();
