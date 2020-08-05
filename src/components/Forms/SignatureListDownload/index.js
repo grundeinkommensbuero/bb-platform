@@ -140,7 +140,7 @@ export default ({ signaturesId }) => {
                 </FinallyMessage>
               )}
               <CTAButtonContainer>
-                <CTAButton type="submit">Her mit den Listen</CTAButton>
+                <CTAButton type="submit">Schickt mir die Listen</CTAButton>
               </CTAButtonContainer>
               <p className={s.anonymousDownload}>
                 Du willst deine E-Mail-Adresse nicht angeben? Du kannst die
