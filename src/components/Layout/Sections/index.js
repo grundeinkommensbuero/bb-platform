@@ -6,7 +6,6 @@ import Map from '../../Map';
 import SignUp from '../../Forms/SignUp';
 import EmailListForm from '../../EmailListForm';
 import { stringToId } from '../../utils';
-import MainIllustration from '../../MainIllustration';
 import AboutUs from '../../AboutUs';
 import Pledge from '../../Forms/Pledge';
 import SignatureListDownload from '../../Forms/SignatureListDownload';
@@ -88,12 +87,7 @@ export function ContentfulSection({ section }) {
       jumpToId={id}
       isVideoSection={isVideoSection}
       afterBodyContent={
-        <>
-          {(isIllustration || isVideoSection) && (
-            <MainIllustration className={s.illustration} />
-          )}
-          {backgroundIllustration === 'confetti' && <Confetti />}
-        </>
+        <>{backgroundIllustration === 'confetti' && <Confetti />}</>
       }
       className={cN({
         [s.sectionPledge]: !!pledgeId,
@@ -211,7 +205,7 @@ export function Section({
           [s.sectionBodyNoEvents]: sectionBodyNoEvents,
         })}
       >
-        {title && <h1 className={s.title}>{title}</h1>}
+        {title && <h2 className={s.title}>{title}</h2>}
         {children}
       </div>
       {afterBodyContent}

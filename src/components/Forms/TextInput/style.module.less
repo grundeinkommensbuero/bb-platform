@@ -6,13 +6,14 @@
 .textarea {
   background: @white;
   border: none;
-  color: @red;
+  color: @darkCyan;
   font-family: inherit;
   border-radius: 0;
   padding: @buttonPadding;
   line-height: inherit;
   max-width: 100%;
   width: @inputWidth;
+  box-shadow: inset 0 0 0 @borderWidthThick @darkGrey;
 
   @media (max-width: @breakPointS) {
     width: 100%;
@@ -24,7 +25,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 @borderWidthThick @red;
+    box-shadow: inset 0 0 0 @borderWidthThick @darkerCyan;
   }
 }
 

@@ -53,12 +53,19 @@ const signUp = async (data, setState, { setUserId, setTempEmail }) => {
     const { userSub: userId } = await Auth.signUp({
       username: data.email.toLowerCase(),
       password: getRandomString(30),
+      attributes: {
+        'custom:source': 'bb-platform',
+      },
     });
 
-    data.referral = getReferral();
+    const extendedData = {
+      ...data,
+      referral: getReferral(),
+      source: 'bb-platform',
+    };
 
     // After we signed up via cognito, we want to create the user in dynamo
-    await createUser({ userId, ...data });
+    await createUser({ userId, ...extendedData });
 
     //we want to set the newly generated id
     setUserId(userId);
