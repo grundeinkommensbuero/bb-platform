@@ -117,31 +117,36 @@ export default ({ signaturesId }) => {
         render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
-              {!userId ? (
-                <>
-                  <p className={s.hint}>
-                    Schickt mir die Unterschriftenliste, erinnert mich an das
-                    Zurücksenden und haltet mich auf dem Laufenden.
-                  </p>
-                  <div className={s.textInputContainer}>
-                    <Field
-                      name="email"
-                      label="E-Mail"
-                      placeholder="E-Mail"
-                      component={TextInputWrapped}
-                    ></Field>
-                  </div>
-                </>
-              ) : (
-                <FinallyMessage className={s.hint} preventScrolling={true}>
-                  <p>
-                    <AuthInfo />
-                  </p>
-                </FinallyMessage>
-              )}
-              <CTAButtonContainer>
-                <CTAButton type="submit">Schickt mir die Listen</CTAButton>
-              </CTAButtonContainer>
+              <div className={s.inputWrapper}>
+                {!userId ? (
+                  <>
+                    <p className={s.hint}>
+                      Schickt mir die Unterschriftenliste, erinnert mich an das
+                      Zurücksenden und haltet mich auf dem Laufenden.
+                    </p>
+                    <div className={s.textInputContainer}>
+                      <Field
+                        name="email"
+                        label="E-Mail"
+                        placeholder="E-Mail"
+                        component={TextInputWrapped}
+                      ></Field>
+                    </div>
+                  </>
+                ) : (
+                  <FinallyMessage className={s.hint} preventScrolling={true}>
+                    <p>
+                      <AuthInfo />
+                    </p>
+                  </FinallyMessage>
+                )}
+                <CTAButtonContainer>
+                  <CTAButton type="submit" className={s.downloadButton}>
+                    Schickt mir die Listen
+                  </CTAButton>
+                </CTAButtonContainer>
+              </div>
+
               <p className={s.anonymousDownload}>
                 Du willst deine E-Mail-Adresse nicht angeben? Du kannst die
                 Liste{' '}
