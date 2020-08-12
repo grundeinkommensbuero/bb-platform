@@ -9,8 +9,6 @@ export default () => {
   const { customUserData } = useContext(AuthContext);
   const signOut = useSignOut();
 
-  console.log(customUserData);
-
   return (
     <>
       {/* TODO: Improve the text so that it's clear for users */}
