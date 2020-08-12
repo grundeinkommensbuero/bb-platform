@@ -105,7 +105,7 @@ export function ContentfulSection({ section }) {
         <Slogan sloganLine1={sloganLine1} sloganLine2={sloganLine2} />
       )}
       {(body || pledgeId || signaturesId) && (
-        <SectionInner hugeText={bodyTextSizeHuge}>
+        <SectionInner>
           {body && body.json ? contentfulJsonToHtml(body.json) : body}
           {pledgeId && <Pledge pledgeId={pledgeId} className={s.pledge} />}
           {signaturesId && (
