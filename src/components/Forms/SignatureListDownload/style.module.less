@@ -14,10 +14,21 @@
   position: relative;
 }
 
+.inputWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .hint {
   margin-top: 0;
   margin-bottom: 3rem;
   font-size: @fontSizeM;
+}
+
+.downloadButton {
+  @media (min-width: @breakPointXL) {
+    margin: 2rem 0 0 2rem;
+  }
 }
 
 .anonymousDownload {
