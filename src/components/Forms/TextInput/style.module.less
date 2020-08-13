@@ -1,5 +1,5 @@
 @import '../../style/vars.less';
-@inputWidth: 25rem;
+@inputWidth: 27rem;
 
 .textInput,
 .textInputInline,
@@ -9,11 +9,11 @@
   color: @darkCyan;
   font-family: inherit;
   border-radius: 0;
-  padding: @buttonPadding;
+  padding: 0.9rem 1rem;
   line-height: inherit;
   max-width: 100%;
   width: @inputWidth;
-  box-shadow: inset 0 0 0 @borderWidth @darkBlue;
+  box-shadow: inset 0 0 0 @borderWidth @darkCyan;
 
   @media (max-width: @breakPointS) {
     width: 100%;
@@ -25,12 +25,12 @@
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 @borderWidth @blueBright;
+    box-shadow: inset 0 0 0 @borderWidth @lightCyan;
   }
 }
 
 .textInput {
-  font-size: @fontSizeL;
+  font-size: @fontSizeM;
 }
 
 .textInputInline {
