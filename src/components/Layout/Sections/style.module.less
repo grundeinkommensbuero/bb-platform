@@ -11,23 +11,35 @@
 
   &:nth-child(2n + 1):not(:only-child) {
     --bg-color: @grey;
-    --font-color: @darkCyan;
-    --secondary-color: @darkerCyan;
+    --font-color: @darkBlue;
+    --secondary-color: @darkCyan;
     --text-on-secondary-color: @white;
     background-color: @grey;
-    color: @darkerCyan;
+    // color: @darkCyan;
 
     &.sectionNewsletter {
       background-image: url('./backgrounds/newsletter_red.svg');
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: @darkCyan;
     }
   }
 
   &:nth-child(2n + 2),
   &:only-child {
     --bg-color: @white;
-    --font-color: @darkCyan;
+    --font-color: @darkBlue;
     background-color: @white;
-    color: @darkCyan;
+    // color: @darkBlue;
+
+    h1,
+    h2,
+    h3 {
+      color: @darkBlue;
+    }
   }
 
   &Video {
@@ -183,10 +195,6 @@
   }
 }
 
-.innerWide {
-  .contentGridMedium();
-}
-
 .innerTextHuge {
   font-size: @fontSizeL;
 
@@ -263,7 +271,7 @@
 
 .sloganLine1 {
   grid-column: 3 / -1;
-  color: @darkerCyan;
+  color: @darkBlue;
 
   @media (max-width: @breakPointM) {
     grid-column-start: 2;

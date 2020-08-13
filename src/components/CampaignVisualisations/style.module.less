@@ -3,22 +3,6 @@
 .body {
   font-weight: bold;
   position: relative;
-
-  &.showCTA {
-    display: grid;
-    grid-template-columns: 1fr 16rem;
-    grid-gap: 2rem;
-    align-items: center;
-
-    @media (max-width: @breakPointM) {
-      grid-template-columns: 1fr;
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-.title {
-  font-size: @fontSizeM;
 }
 
 .cta {
@@ -29,12 +13,16 @@
   position: relative;
   height: 7.5rem;
   line-height: 1;
+  margin-bottom: 1.6rem;
 }
 
 .barGoal {
   position: absolute;
-  background: var(--font-color);
-  color: var(--bg-color);
+  // background: var(--font-color);
+  // background: @darkBlue;
+  // color: var(--bg-color);
+  border: 1px solid (@darkCyan);
+  color: var(--font-color);
   height: 5rem;
   width: 100%;
   font-size: @fontSizeM;
@@ -84,7 +72,6 @@
   height: 100%;
   width: 100%;
   z-index: 0;
-  transform: skewX(3.2deg) skewY(0.3deg) rotate(-0.2deg);
 
   .hasNotStarted & {
     border: 1px solid var(--font-color);
@@ -94,7 +81,6 @@
 .barGoalInbetween {
   position: absolute;
   height: 100%;
-  background: var(--font-color);
 }
 
 .starts {
@@ -112,7 +98,7 @@
 .barCurrent {
   position: absolute;
   bottom: 0;
-  height: 5rem;
+  height: 4.5rem;
   font-size: @fontSizeXXXL;
   color: var(--text-on-secondary-color);
   display: flex;
@@ -129,18 +115,17 @@
 
   &::before {
     content: '';
-    background: var(--secondary-color);
+    background: var(--font-color);
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 0;
-    transform: skewX(-3.2deg) skewY(0.3deg) rotate(0.2deg);
   }
 
   .barCurrentLabel {
     position: absolute;
     z-index: 1;
-    bottom: -0.3rem;
+    bottom: 0.7rem;
     right: 1rem;
   }
 
