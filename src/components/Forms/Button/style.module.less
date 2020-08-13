@@ -3,29 +3,36 @@
 .linkButton,
 .button {
   padding: @buttonPadding;
-  border: var(--font-color) solid @borderWidth;
+  border: 2px solid @darkCyan;
   border-radius: @borderRadius;
   text-decoration: none;
   font-size: @fontSizeL;
   font-weight: 600;
+  color: #ffffff;
 
   &.medium {
     font-size: @fontSizeM;
   }
 
   &:hover {
-    color: var(--bg-color);
-    background: var(--font-color);
+    background: #009393;
+    border-color: #009393;
   }
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 @borderWidthThick var(--font-color);
+    background: #19505c;
+    border-color: #19505c;
   }
 }
 
 .linkButton {
   display: inline-block;
+  color: @darkCyan;
+
+  &:hover {
+    color: var(--bg-color);
+  }
 }
 
 .button {
@@ -48,7 +55,7 @@
   font-weight: inherit;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0.1em 0 var(--bg-color), 0 0.2em 0 currentColor;
+  box-shadow: 0 0.1em 0 var(--bg-color), 0 3px 0 currentColor;
 
   &:hover {
     box-shadow: none;
