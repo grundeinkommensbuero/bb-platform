@@ -11,9 +11,11 @@
 
   &:nth-child(2n + 1):not(:only-child) {
     --bg-color: @grey;
-    --font-color: @darkBlue;
+    --font-color: @black;
     --secondary-color: @darkCyan;
     --text-on-secondary-color: @white;
+    --tertiary-color: @darkBlue;
+    --highlight-color: @lightCyan;
     background-color: @grey;
 
     &.sectionNewsletter {
@@ -23,20 +25,23 @@
     h1,
     h2,
     h3 {
-      color: @darkCyan;
+      color: var(--secondary-color);
     }
   }
 
   &:nth-child(2n + 2),
   &:only-child {
     --bg-color: @white;
-    --font-color: @darkBlue;
+    --font-color: @black;
+    --secondary-color: @darkBlue;
+    --tertiary-color: @darkCyan;
+    --highlight-color: @lightBlue;
     background-color: @white;
 
     h1,
     h2,
     h3 {
-      color: @darkBlue;
+      color: var(--secondary-color);
     }
   }
 

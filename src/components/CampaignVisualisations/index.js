@@ -6,7 +6,6 @@ import { formatDateMonthYear } from '../utils';
 import { LinkButtonLocal, LinkButton } from '../Forms/Button';
 import { useSignatureCount } from '../../hooks/Api/Signatures/Get';
 import { Link } from 'gatsby';
-import eyeCatcherBackground from '!svg-inline-loader!./eye_catcher.svg';
 import { Tooltip } from '../Tooltip';
 import VisualCounter from '../VisualCounter';
 import { useGetCrowdfundingDirectly } from '../../hooks/Api/Crowdfunding';
@@ -311,11 +310,7 @@ export const Visualisation = ({
             })}
           >
             <WrapInLink link={showCTA && ctaLink} className={s.eyeCatcherLink}>
-              <div
-                className={s.eyeCatcherBackground}
-                dangerouslySetInnerHTML={{ __html: eyeCatcherBackground }}
-                aria-hidden="true"
-              />
+              <div className={s.eyeCatcherBackground} aria-hidden="true" />
               <div className={s.eyeCatcherContent}>{EyeCatcherContent}</div>
             </WrapInLink>
           </div>
