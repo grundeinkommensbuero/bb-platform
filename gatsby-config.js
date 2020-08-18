@@ -28,7 +28,7 @@ const config = {
       options: {
         query: `
           {
-            site: contentfulGlobalStuff(contentful_id: { eq: "3mMymrVLEHYrPI9b6wgBzg" }) {
+            site: contentfulGlobalStuff(contentful_id: { eq: "77De3ybaRfplngS9vkw7gS" }) {
               siteTitle
             }
           }
