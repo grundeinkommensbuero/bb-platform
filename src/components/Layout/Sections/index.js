@@ -51,7 +51,6 @@ export function ContentfulSection({ section }) {
     sloganLine2,
     __typename,
     teamMembers,
-    bodyTextSizeHuge,
     pledgeId,
     signaturesId,
     callToActionReference,
@@ -172,9 +171,7 @@ export function ContentfulSection({ section }) {
         </SectionInner>
       )}
       {bodyAtTheEnd && bodyAtTheEnd.json && (
-        <SectionInner hugeText={bodyTextSizeHuge}>
-          {contentfulJsonToHtml(bodyAtTheEnd.json)}
-        </SectionInner>
+        <SectionInner>{contentfulJsonToHtml(bodyAtTheEnd.json)}</SectionInner>
       )}
     </Section>
   );
