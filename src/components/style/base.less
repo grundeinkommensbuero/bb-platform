@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: 'Open Sans', Tahoma, Arial, Helvetica, sans-serif;
-  font-weight: regular;
+  font-family: @sans;
+  font-weight: normal;
   background: @white;
   margin: 0;
   color: @black;
@@ -29,12 +29,17 @@ h1 {
 
 h1,
 h2 {
-  font-family: 'Heuristica', serif;
+  font-family: @sans;
   font-size: @fontSizeL;
+  font-weight: bold;
 
   @media (max-width: @breakPointM) {
     hyphens: auto;
   }
+}
+
+h3 {
+  font-family: @sans;
 }
 
 h3,
@@ -52,6 +57,7 @@ a {
 
 p {
   line-height: 1.5;
+  font-family: @serif;
 
   a {
     text-decoration: none;

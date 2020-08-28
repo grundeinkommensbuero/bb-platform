@@ -10,39 +10,23 @@
   }
 
   &:nth-child(2n + 1):not(:only-child) {
-    --bg-color: @grey;
-    --font-color: @black;
-    --secondary-color: @darkCyan;
-    --text-on-secondary-color: @white;
-    --tertiary-color: @darkBlue;
-    --highlight-color: @lightCyan;
-    background-color: @grey;
+    --bg-color: @darkBlue;
+    --font-color: @white;
+    --secondary-color: @lightGrey;
+    --text-on-secondary-color: @black;
 
-    &.sectionNewsletter {
-      background-image: url('./backgrounds/newsletter_red.svg');
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: var(--secondary-color);
-    }
+    background-color: var(--bg-color);
+    color: var(--font-color);
   }
 
   &:nth-child(2n + 2),
   &:only-child {
-    --bg-color: @white;
+    --bg-color: @lightGrey;
     --font-color: @black;
     --secondary-color: @darkBlue;
-    --tertiary-color: @darkCyan;
-    --highlight-color: @lightBlue;
-    background-color: @white;
+    --text-on-secondary-color: @white;
 
-    h1,
-    h2,
-    h3 {
-      color: var(--secondary-color);
-    }
+    background-color: var(--bg-color);
   }
 
   &Video {
@@ -97,60 +81,8 @@
     }
   }
 
-  &CrowdCollect,
-  &Confetti {
-    background-image: url('./backgrounds/crowd_collect_yellow_desktop.svg');
-
-    @media (max-width: 900px) {
-      background-image: url('./backgrounds/crowd_collect_yellow_mobile.svg');
-    }
-  }
-
-  &CrowdTravel {
-    background-image: url('./backgrounds/crowd_travel_yellow_desktop.svg');
-
-    @media (max-width: 900px) {
-      background-image: url('./backgrounds/crowd_travel_yellow_mobile.svg');
-    }
-  }
-
-  &CrowdQuestion {
-    background-image: url('./backgrounds/crowd_question_yellow_desktop.svg');
-
-    @media (max-width: 900px) {
-      background-image: url('./backgrounds/crowd_question_yellow_mobile.svg');
-    }
-  }
-
-  &CrowdCollect,
-  &Confetti,
-  &CrowdTravel,
-  &CrowdQuestion {
-    background-repeat: no-repeat;
-    background-position: bottom -6rem center;
-    background-size: auto 130rem;
-
-    @media (min-width: 1600px) {
-      background-size: auto 160rem;
-    }
-
-    @media (max-width: 900px) {
-      padding-bottom: 23rem;
-      background-position: bottom -3rem center;
-      background-size: auto 160rem;
-    }
-
-    @media (max-width: 600px) {
-      padding-bottom: 20rem;
-      background-size: auto 130rem;
-      background-position: bottom -1rem center;
-    }
-
-    @media (max-width: 450px) {
-      padding-bottom: 15rem;
-      background-size: auto 90rem;
-      background-position: bottom 0rem center;
-    }
+  &.sectionIllustration {
+    //background-image: url('./backgrounds/field.png');
   }
 }
 
@@ -253,12 +185,12 @@
 }
 
 .slogan {
-  .contentGrid();
+  /*   .contentGrid();
   grid-column: 1 / -1;
   position: relative;
   z-index: 1;
   grid-row-gap: 2rem;
-  margin: 4rem 0;
+  margin: 4rem 0; */
   font-size: @fontSizeXXXL;
 
   @media (max-width: @breakPointM) {
@@ -273,7 +205,7 @@
 }
 
 .sloganLine1 {
-  grid-column: 3 / -1;
+  //grid-column: 3 / -1;
   color: @darkBlue;
 
   @media (max-width: @breakPointM) {
@@ -286,7 +218,7 @@
 }
 
 .sloganLine2 {
-  grid-column: 4 / -1;
+  //grid-column: 4 / -1;
   color: @darkCyan;
 
   @media (max-width: @breakPointM) {

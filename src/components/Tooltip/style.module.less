@@ -7,7 +7,7 @@
   width: 1.5rem;
   transform: rotate(45deg);
   z-index: 0;
-  background: var(--font-color);
+  background: @lightBlue;
 
   &[data-placement*='top'] {
     bottom: @distance;
@@ -19,15 +19,14 @@
 }
 
 .popup {
-  color: var(--bg-color);
-  padding: 0.5rem;
+  padding: 1rem;
   visibility: hidden;
   text-align: left;
   z-index: 10;
 
   &:before {
     content: '';
-    background: var(--font-color);
+    background: @lightBlue;
     position: absolute;
     z-index: 0;
     top: 0;
@@ -45,10 +44,12 @@
 .tooltipContent {
   z-index: 1;
   position: relative;
-  font-size: @fontSizeM;
-  text-shadow: none;
-  color: var(--bg-color);
   max-width: 20rem;
+  font-size: @fontSizeM;
+  font-family: @sans;
+  line-height: normal;
+  text-shadow: none;
+  color: @black;
 }
 
 .content {

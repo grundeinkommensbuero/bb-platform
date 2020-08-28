@@ -6,6 +6,7 @@ import Map from '../../Map';
 import SignUp from '../../Forms/SignUp';
 import EmailListForm from '../../EmailListForm';
 import { stringToId } from '../../utils';
+import MainIllustration from '../../MainIllustration';
 import AboutUs from '../../AboutUs';
 import Pledge from '../../Forms/Pledge';
 import SignatureListDownload from '../../Forms/SignatureListDownload';
@@ -85,9 +86,14 @@ export function ContentfulSection({ section }) {
       title={title}
       jumpToId={id}
       isVideoSection={isVideoSection}
-      afterBodyContent={
-        <>{backgroundIllustration === 'confetti' && <Confetti />}</>
-      }
+      /* afterBodyContent={
+        <>
+          {(isIllustration || isVideoSection) && (
+            <MainIllustration className={s.illustration} />
+          )}
+          {backgroundIllustration === 'confetti' && <Confetti />}
+        </>
+      } */
       className={cN({
         [s.sectionPledge]: !!pledgeId,
         [s.sectionNewsletter]: !!emailSignup,
@@ -264,11 +270,10 @@ export function SectionInner({ children, hugeText, wide, className }) {
 
 function Slogan({ sloganLine1, sloganLine2 }) {
   return (
-    <h1 className={s.slogan}>
-      <span className={s.sloganLine1}>{sloganLine1}</span>
-      <span className={s.sloganLine2}>{sloganLine2}</span>
-      {/* <EmailListForm className={s.sloganLineSignup} /> */}
-    </h1>
+    <div className={s.slogan}>
+      <h1 className={s.sloganLine1}>{sloganLine1}</h1>
+      <h2 className={s.sloganLine2}>{sloganLine2}</h2>
+    </div>
   );
 }
 
