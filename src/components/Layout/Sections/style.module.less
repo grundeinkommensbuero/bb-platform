@@ -44,7 +44,7 @@
 
   &Illustration {
     @media (min-width: @breakPointM) {
-      padding: 8rem 1rem 8rem;
+      padding: 6rem 1rem 6rem;
     }
   }
 
@@ -102,6 +102,10 @@
   }
 }
 
+.sectionIllustration .sectionBody {
+  display: block;
+}
+
 .inner {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -155,14 +159,6 @@
   }
 }
 
-.illustration {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 .youtubeContainer {
   position: relative;
   padding-bottom: 56.25%;
@@ -184,13 +180,20 @@
   }
 }
 
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.illustration {
+  width: 55%;
+  padding: 0 3rem;
+}
+
 .slogan {
-  /*   .contentGrid();
-  grid-column: 1 / -1;
-  position: relative;
+  width: 45%;
   z-index: 1;
-  grid-row-gap: 2rem;
-  margin: 4rem 0; */
+  padding-left: 3rem;
   font-size: @fontSizeXXXL;
 
   @media (max-width: @breakPointM) {
@@ -205,8 +208,12 @@
 }
 
 .sloganLine1 {
-  //grid-column: 3 / -1;
-  color: @darkBlue;
+  margin: 6rem 0 1rem 0;
+  font-size: @fontSizeXXXL;
+  font-weight: bold;
+  line-height: 4.5rem;
+  letter-spacing: 1px;
+  color: @softRed;
 
   @media (max-width: @breakPointM) {
     grid-column-start: 2;
@@ -218,8 +225,9 @@
 }
 
 .sloganLine2 {
-  //grid-column: 4 / -1;
-  color: @darkCyan;
+  font-size: @fontSizeM;
+  font-weight: normal;
+  color: @white;
 
   @media (max-width: @breakPointM) {
     grid-column-start: 3;

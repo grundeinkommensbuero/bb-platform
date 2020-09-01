@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240px" height="65px" viewBox="0 0 240 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Logo Copy 2</title>
+    <g id="Design-v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="PTSans-Bold, PT Sans" font-size="35" font-weight="bold" letter-spacing="0.458181818" line-spacing="32">
+        <g id="Design-v2---Home" transform="translate(-42.000000, -33.000000)">
+            <g id="Header" transform="translate(0.000000, -1.000000)">
+                <g id="Logo-Copy-2" transform="translate(42.000000, 34.000000)">
+                    <text id="Brandenburg" fill="#000000">
+                        <tspan x="0" y="31">Brandenburg</tspan>
+                    </text>
+                    <text id="mitbestimmen!" fill="#F25E5E">
+                        <tspan x="0" y="64">mitbestimmen!</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

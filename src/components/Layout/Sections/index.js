@@ -6,7 +6,6 @@ import Map from '../../Map';
 import SignUp from '../../Forms/SignUp';
 import EmailListForm from '../../EmailListForm';
 import { stringToId } from '../../utils';
-import MainIllustration from '../../MainIllustration';
 import AboutUs from '../../AboutUs';
 import Pledge from '../../Forms/Pledge';
 import SignatureListDownload from '../../Forms/SignatureListDownload';
@@ -17,7 +16,7 @@ import Img from 'gatsby-image';
 import Share from '../../SocialMedia/Share';
 import BlogTeaser from '../../BlogTeaser';
 import QuestionUbi from '../../QuestionUbi';
-import Confetti from '../../Confetti';
+import illustrationComputer from './illustration-computer.svg';
 import { contentfulJsonToHtml } from '../../utils/contentfulJsonToHtml';
 
 export default function Sections({ sections }) {
@@ -107,7 +106,14 @@ export function ContentfulSection({ section }) {
       sectionBodyNoEvents={isIllustration || isVideoSection}
     >
       {isIllustration && (
-        <Slogan sloganLine1={sloganLine1} sloganLine2={sloganLine2} />
+        <div className={s.main}>
+          <img
+            src={illustrationComputer}
+            alt="Menschen beteiligen sich elektronisch an einem Volksbegehren"
+            className={s.illustration}
+          ></img>
+          <Slogan sloganLine1={sloganLine1} sloganLine2={sloganLine2} />
+        </div>
       )}
       {(body || pledgeId || signaturesId) && (
         <SectionInner>
