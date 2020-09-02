@@ -120,7 +120,7 @@ export default ({ signaturesId }) => {
               <div className={s.inputWrapper}>
                 {!userId ? (
                   <>
-                    <p className={s.hint}>
+                    <p>
                       Schickt mir die Unterschriftenliste, erinnert mich an das
                       Zurücksenden und haltet mich auf dem Laufenden.
                     </p>
