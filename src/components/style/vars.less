@@ -52,7 +52,8 @@
 @breakPointXL: 1200px;
 @breakPointL: 1000px;
 @breakPointM: 800px;
-@breakPointS: 500px;
+@breakPointS: 650px;
+@breakPointXS: 500px;
 
 .headerFooterGrid() {
   @half: calc(@contentWidthL / 2 - 1rem);
@@ -80,7 +81,7 @@
       [slim-end] 1fr [wide-end medium-end];
   }
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     grid-template-columns: [wide-start slim-start medium-start] repeat(8, 1fr) [wide-end medium-end slim-end];
   }
 }

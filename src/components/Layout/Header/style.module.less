@@ -10,7 +10,7 @@
   background: @white;
   grid-template-rows: @headerHeight;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     grid-template-rows: @headerHeightS;
   }
 }
@@ -26,8 +26,9 @@
   margin: 1.3rem 0;
   width: 15rem;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     width: 10.7rem;
+    margin: 1rem 0;
   }
 }
 
@@ -90,7 +91,7 @@
   animation-iteration-count: infinite;
   transform-origin: center;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     border-radius: @borderRadiusSmall !important;
     animation-name: wiggleRotated;
     padding: 0.5rem 0.5rem 0.2rem !important;

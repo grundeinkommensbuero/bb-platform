@@ -6,7 +6,7 @@
   padding: 9rem var(--grid-gap) 10rem;
 
   @media (max-width: @breakPointM) {
-    padding: 3rem 1rem 5rem;
+    padding: 3rem 2rem 5rem;
   }
 
   &:nth-child(2n + 1):not(:only-child) {
@@ -82,7 +82,9 @@
   }
 
   &.sectionIllustration {
-    //background-image: url('./backgrounds/field.png');
+    @media (max-width: @breakPointXS) {
+      padding: 2rem 2rem 3rem;
+    }
   }
 }
 
@@ -113,7 +115,7 @@
   .contentGridSlim();
   font-size: @fontSizeM;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     font-size: @fontSizeS;
   }
 
@@ -188,22 +190,33 @@
 .illustration {
   width: 55%;
   padding: 0 3rem;
+
+  @media (max-width: @breakPointXL) {
+    width: 50%;
+  }
+
+  @media (max-width: @breakPointS) {
+    width: 45%;
+    padding: 0 1rem;
+  }
+
+  @media (max-width: @breakPointXS) {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2rem;
+  }
 }
 
 .slogan {
   width: 45%;
   z-index: 1;
   padding-left: 1rem;
-  font-size: @fontSizeXXXL;
 
-  @media (max-width: @breakPointM) {
-    font-size: @fontSizeXL;
+  @media (max-width: @breakPointXL) {
+    padding-left: 0;
   }
 
-  @media (max-width: @breakPointS) {
-    font-size: @fontSizeXL;
-    grid-row-gap: 1rem;
-    margin: 5rem 0 7rem;
+  @media (max-width: @breakPointXS) {
+    width: 100%;
   }
 }
 
@@ -215,12 +228,30 @@
   letter-spacing: 0.04rem;
   color: @softRed;
 
-  @media (max-width: @breakPointM) {
-    grid-column-start: 2;
+  @media (max-width: @breakPointXL) {
+    margin-top: 4rem;
+    font-size: 4rem;
+  }
+
+  @media (max-width: @breakPointL) {
+    font-size: 3.7rem;
+    line-height: 4rem;
   }
 
   @media (max-width: @breakPointM) {
-    grid-column-start: 2;
+    font-size: 3rem;
+    line-height: 3.1rem;
+  }
+
+  @media (max-width: @breakPointS) {
+    font-size: 2.3rem;
+    line-height: 2.4rem;
+  }
+
+  @media (max-width: @breakPointXS) {
+    margin-top: 2.5rem;
+    font-size: 2.8rem;
+    line-height: 2.7rem;
   }
 }
 
@@ -234,7 +265,7 @@
     grid-column-start: 3;
   }
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     grid-column-start: 1;
   }
 }
@@ -249,7 +280,7 @@
     grid-column-end: -2;
   }
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     grid-column-start: 1;
     grid-column-end: -1;
   }
@@ -258,7 +289,7 @@
 .pledge {
   margin-top: 4rem;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     margin-top: 1rem;
   }
 }
@@ -293,7 +324,7 @@
   height: 2rem;
   grid-column: 3;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     height: 1rem;
   }
 }
@@ -311,7 +342,7 @@
   font-size: @fontSizeXXL;
   margin: 1rem 0 0;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     font-size: @fontSizeL;
   }
 }
