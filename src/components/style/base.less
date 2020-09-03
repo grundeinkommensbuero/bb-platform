@@ -45,6 +45,7 @@ h4 {
 
   @media (max-width: @breakPointM) {
     hyphens: auto;
+    font-size: @fontSizeS;
   }
 }
 
@@ -57,6 +58,10 @@ p {
   font-family: @serif;
   font-size: @fontSizeS;
   letter-spacing: 0.04rem;
+
+  @media (max-width: @breakPointM) {
+    font-size: 1rem;
+  }
 
   a {
     text-decoration: none;
