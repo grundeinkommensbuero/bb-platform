@@ -7,6 +7,11 @@
 
 .textInputContainer {
   margin-bottom: 2rem;
+
+  @media (max-width: @breakPointXL) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
 
 .form {
@@ -17,6 +22,10 @@
 .inputWrapper {
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: @breakPointXL) {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .hint {
@@ -27,10 +36,6 @@
 
 .downloadButton {
   @media (min-width: @breakPointXL) {
-    margin: 1.6rem 0 0 2rem;
+    margin: 1.6rem 0 0 0.7rem;
   }
-}
-
-.anonymousDownload {
-  font-size: @fontSizeM;
 }

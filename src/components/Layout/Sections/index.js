@@ -16,7 +16,7 @@ import Img from 'gatsby-image';
 import Share from '../../SocialMedia/Share';
 import BlogTeaser from '../../BlogTeaser';
 import QuestionUbi from '../../QuestionUbi';
-import Confetti from '../../Confetti';
+import illustrationComputer from './illustration-computer.svg';
 import { contentfulJsonToHtml } from '../../utils/contentfulJsonToHtml';
 
 export default function Sections({ sections }) {
@@ -85,9 +85,14 @@ export function ContentfulSection({ section }) {
       title={title}
       jumpToId={id}
       isVideoSection={isVideoSection}
-      afterBodyContent={
-        <>{backgroundIllustration === 'confetti' && <Confetti />}</>
-      }
+      /* afterBodyContent={
+        <>
+          {(isIllustration || isVideoSection) && (
+            <MainIllustration className={s.illustration} />
+          )}
+          {backgroundIllustration === 'confetti' && <Confetti />}
+        </>
+      } */
       className={cN({
         [s.sectionPledge]: !!pledgeId,
         [s.sectionNewsletter]: !!emailSignup,
@@ -101,7 +106,14 @@ export function ContentfulSection({ section }) {
       sectionBodyNoEvents={isIllustration || isVideoSection}
     >
       {isIllustration && (
-        <Slogan sloganLine1={sloganLine1} sloganLine2={sloganLine2} />
+        <div className={s.main}>
+          <img
+            src={illustrationComputer}
+            alt="Menschen beteiligen sich elektronisch an einem Volksbegehren"
+            className={s.illustration}
+          ></img>
+          <Slogan sloganLine1={sloganLine1} sloganLine2={sloganLine2} />
+        </div>
       )}
       {(body || pledgeId || signaturesId) && (
         <SectionInner>
@@ -264,11 +276,10 @@ export function SectionInner({ children, hugeText, wide, className }) {
 
 function Slogan({ sloganLine1, sloganLine2 }) {
   return (
-    <h1 className={s.slogan}>
-      <span className={s.sloganLine1}>{sloganLine1}</span>
-      <span className={s.sloganLine2}>{sloganLine2}</span>
-      {/* <EmailListForm className={s.sloganLineSignup} /> */}
-    </h1>
+    <div className={s.slogan}>
+      <h1 className={s.sloganLine1}>{sloganLine1}</h1>
+      <h2 className={s.sloganLine2}>{sloganLine2}</h2>
+    </div>
   );
 }
 

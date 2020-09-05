@@ -1,4 +1,4 @@
-@red: #fc484c;
+@red: #ff422c;
 @blueBright: #22c8ee;
 @blueDark: #3423f6;
 @rose: #e5b5c8;
@@ -8,7 +8,7 @@
 @greyBright: #f5f5f5;
 @white: white;
 
-@black: #19505c;
+@black: #3b3e54;
 @darkCyan: #008b8b;
 @lightCyan: #08997c;
 @darkBlue: #00748f;
@@ -17,19 +17,31 @@
 @aliceBlue: #e8f0ff;
 @darkGrey: #a9a9a9;
 
-@fontSizeXXXL: 3.2rem;
+// Design v2: Dark blue and grey
+@darkBlue: #003f63;
+@lightGrey: #f3f3f3;
+@lightBlue: #80c8f1;
+@softRed: #f25e5e;
+@brightRed: #ff3b3b;
+@darkRed: #970000;
+
+@serif: 'Bitter', Tahoma, Arial, Helvetica, sans-serif;
+@sans: 'PT Sans', sans-serif;
+
+@fontSizeXXXL: 4.5rem;
 @fontSizeXXL: 2.7rem;
 @fontSizeXL: 2.4rem;
 @fontSizeL: 2rem;
 @fontSizeM: 1.3rem;
 @fontSizeS: 1.15rem;
 @fontSizeXS: 1rem;
+@fontSizeButton: 1.4rem;
 
 @borderWidth: 1px;
 @borderWidthThick: 3px;
 @borderRadius: 1.6rem;
 @borderRadiusSmall: 0.9rem;
-@buttonPadding: 0.8rem 1.5rem;
+@buttonPadding: 0.6rem 1.5rem;
 
 @headerHeight: 5rem;
 @headerHeightS: 4rem;
@@ -40,7 +52,8 @@
 @breakPointXL: 1200px;
 @breakPointL: 1000px;
 @breakPointM: 800px;
-@breakPointS: 500px;
+@breakPointS: 650px;
+@breakPointXS: 500px;
 
 .headerFooterGrid() {
   @half: calc(@contentWidthL / 2 - 1rem);
@@ -68,7 +81,7 @@
       [slim-end] 1fr [wide-end medium-end];
   }
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     grid-template-columns: [wide-start slim-start medium-start] repeat(8, 1fr) [wide-end medium-end slim-end];
   }
 }

@@ -3,50 +3,41 @@
 .linkButton,
 .button {
   padding: @buttonPadding;
+  border: none;
   border-radius: @borderRadius;
+  background: @softRed;
+  color: @white;
   text-decoration: none;
-  font-size: @fontSizeL;
+  font-family: @sans;
+  font-size: @fontSizeButton;
   font-weight: 600;
+  letter-spacing: 0.04rem;
+
+  @media (max-width: @breakPointXS) {
+    width: 100%;
+  }
 
   &.medium {
     font-size: @fontSizeM;
   }
 
+  &:hover {
+    background: @brightRed;
+  }
+
   &:focus {
     outline: none;
-    background: #19505c;
-    border-color: #19505c;
+    background: @brightRed;
   }
 }
 
 .linkButton {
   display: inline-block;
-  border: 2px solid var(--tertiary-color);
-  color: var(--tertiary-color);
-
-  &:hover {
-    background: var(--tertiary-color);
-    border-color: var(--tertiary-color);
-    color: var(--bg-color);
-  }
-
-  &:focus {
-    color: var(--bg-color);
-  }
 }
 
 .button {
-  background: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
-  font-family: inherit;
   line-height: inherit;
-  color: #ffffff;
   cursor: pointer;
-
-  &:hover {
-    background: var(--highlight-color);
-    border-color: var(--highlight-color);
-  }
 }
 
 .inlineButton {

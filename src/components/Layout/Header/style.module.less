@@ -10,7 +10,7 @@
   background: @white;
   grid-template-rows: @headerHeight;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     grid-template-rows: @headerHeightS;
   }
 }
@@ -23,11 +23,12 @@
 
 .title {
   grid-column: 2;
-  margin: 0.8rem 0;
+  margin: 1.3rem 0;
   width: 15rem;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     width: 10.7rem;
+    margin: 1rem 0;
   }
 }
 
@@ -41,7 +42,7 @@
 }
 
 .nav {
-  font-size: @fontSizeM;
+  font-size: 1.2rem;
 
   @media (max-width: 900px) {
     font-size: @fontSizeS;
@@ -90,7 +91,7 @@
   animation-iteration-count: infinite;
   transform-origin: center;
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     border-radius: @borderRadiusSmall !important;
     animation-name: wiggleRotated;
     padding: 0.5rem 0.5rem 0.2rem !important;

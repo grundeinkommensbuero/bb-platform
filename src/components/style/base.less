@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: 'Open Sans', Tahoma, Arial, Helvetica, sans-serif;
-  font-weight: regular;
+  font-family: @sans;
+  font-weight: normal;
   background: @white;
   margin: 0;
   color: @black;
@@ -23,18 +23,20 @@ body {
   }
 }
 
-h1 {
-  line-height: 1.4;
-}
-
 h1,
 h2 {
-  font-family: 'Heuristica', serif;
+  font-family: @sans;
   font-size: @fontSizeL;
+  font-weight: bold;
+  letter-spacing: 0.03rem;
 
   @media (max-width: @breakPointM) {
     hyphens: auto;
   }
+}
+
+h3 {
+  font-family: @sans;
 }
 
 h3,
@@ -43,6 +45,7 @@ h4 {
 
   @media (max-width: @breakPointM) {
     hyphens: auto;
+    font-size: @fontSizeS;
   }
 }
 
@@ -52,6 +55,13 @@ a {
 
 p {
   line-height: 1.5;
+  font-family: @serif;
+  font-size: @fontSizeS;
+  letter-spacing: 0.04rem;
+
+  @media (max-width: @breakPointM) {
+    font-size: 1rem;
+  }
 
   a {
     text-decoration: none;

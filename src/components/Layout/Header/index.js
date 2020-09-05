@@ -5,7 +5,7 @@ import { OverlayContext } from '../../../context/Overlay';
 import { Button } from '../../Forms/Button';
 
 import s from './style.module.less';
-import Logo from './logo.png';
+import Logo from './logo.svg';
 import Menu from './Menu';
 
 const Header = ({ menu, hasOverlay }) => {

@@ -7,7 +7,7 @@
   > * {
     margin: 1rem;
   }
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     margin: -0.5rem;
     > * {
       margin: 0.5rem;
@@ -16,9 +16,13 @@
 }
 
 .container {
+  @media (max-width: @breakPointXS) {
+    width: 100%;
+  }
+
   &.hasIllustration {
     margin-bottom: 1.8rem;
-    @media (max-width: @breakPointS) {
+    @media (max-width: @breakPointXS) {
       margin-bottom: 5rem;
     }
   }
@@ -31,7 +35,7 @@
 }
 
 .button {
-  font-size: @fontSizeM;
+  font-size: @fontSizeButton;
 }
 
 .illustrationPointLeft,
@@ -58,7 +62,7 @@
   top: calc(100% - 7rem);
   left: calc(100% + 4rem);
 
-  @media (max-width: @breakPointS) {
+  @media (max-width: @breakPointXS) {
     display: none;
   }
 }
@@ -69,7 +73,7 @@
   top: calc(100% + 1rem);
   left: 10rem;
 
-  @media (min-width: @breakPointS) {
+  @media (min-width: @breakPointXS) {
     display: none;
   }
 }
