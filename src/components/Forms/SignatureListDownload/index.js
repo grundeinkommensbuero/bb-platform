@@ -12,6 +12,7 @@ import { useSignUp } from '../../../hooks/Authentication';
 import AuthContext from '../../../context/Authentication';
 import AuthInfo from '../../AuthInfo';
 import DownloadListsNextSteps from '../DownloadListsNextSteps';
+import { useSignatureListCount } from '../../../hooks/Api/Signatures/Get';
 
 const trackingCategory = 'ListDownload';
 
@@ -20,6 +21,7 @@ export default ({ signaturesId }) => {
   const [signUpState, signUp] = useSignUp();
   const [email, setEmail] = useState();
   const { userId } = useContext(AuthContext);
+  const listCount = useSignatureListCount();
 
   useEffect(() => {
     // If user was registered proceed by creating list
@@ -161,6 +163,15 @@ export default ({ signaturesId }) => {
                 Allerdings können wir dich dann nicht informieren, wenn deine
                 Unterschriften bei uns eingegangen sind!
               </p>
+
+              <br />
+              <FinallyMessage className={s.hint} preventScrolling={true}>
+                <p>
+                  Es wurden bereits{' '}
+                  {listCount && listCount[signaturesId].total.downloads} Listen
+                  heruntergeladen!
+                </p>
+              </FinallyMessage>
             </form>
           );
         }}

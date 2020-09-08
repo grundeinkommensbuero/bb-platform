@@ -12,7 +12,21 @@ import CONFIG from '../../../../../aws-config';
   - undefined
   - stats
 */
+export const useSignatureListCount = () => {
+  const [stats, setStats] = useState(() => {
+    if (typeof window !== 'undefined') {
+      getSignatureListCount().then(data => setStats(data));
+    }
+  });
 
+  return stats;
+};
+
+/*
+  States:
+  - undefined
+  - stats
+*/
 export const useSignatureCount = () => {
   const [stats, setStats] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -101,6 +115,32 @@ const getSignatureCountOfUser = async ({ listId, userId, email }) => {
 
     if (response.status === 200) {
       // get stats (object) by parsing json { received: number, scannedByUser: number }
+      return await response.json();
+    } else {
+      console.log('Response is not 200', response.status);
+    }
+  } catch (error) {
+    console.log('Error while updating signature list', error);
+  }
+};
+
+// gets list count for each campaign
+const getSignatureListCount = async () => {
+  try {
+    const request = {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const response = await fetch(
+      `${CONFIG.API.INVOKE_URL}/analytics/signatures/lists`,
+      request
+    );
+
+    if (response.status === 200) {
       return await response.json();
     } else {
       console.log('Response is not 200', response.status);
