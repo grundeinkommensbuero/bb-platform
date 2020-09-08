@@ -86,9 +86,9 @@ const config = {
     {
       resolve: 'gatsby-plugin-matomo',
       options: {
-        siteId: '1',
+        siteId: '2',
         matomoUrl: 'https://expeditiongrundeinkommen.matomo.cloud',
-        siteUrl: 'https://www.expedition-grundeinkommen.de',
+        siteUrl: 'https://www.brandenburg-mitbestimmen.de',
         disableCookies: true,
       },
     },
