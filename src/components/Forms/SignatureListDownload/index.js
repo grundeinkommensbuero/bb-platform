@@ -3,6 +3,7 @@ import { Form, Field } from 'react-final-form';
 import { TextInputWrapped } from '../TextInput';
 import { validateEmail, addActionTrackingId, trackEvent } from '../../utils';
 import s from './style.module.less';
+import cN from 'classnames';
 import { CTAButton, CTAButtonContainer } from '../../Layout/CTAButton';
 import { LinkButton, InlineButton } from '../Button';
 import { FinallyMessage } from '../FinallyMessage';
@@ -119,6 +120,16 @@ export default ({ signaturesId }) => {
         render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
+              <FinallyMessage
+                className={cN(s.amountOfDownloads)}
+                preventScrolling={true}
+              >
+                <p>
+                  Bisher wurden schon{' '}
+                  {listCount && listCount[signaturesId].total.downloads} Listen
+                  heruntergeladen!
+                </p>
+              </FinallyMessage>
               <div className={s.inputWrapper}>
                 {!userId ? (
                   <>
@@ -163,15 +174,6 @@ export default ({ signaturesId }) => {
                 Allerdings können wir dich dann nicht informieren, wenn deine
                 Unterschriften bei uns eingegangen sind!
               </p>
-
-              <br />
-              <FinallyMessage className={s.hint} preventScrolling={true}>
-                <p>
-                  Es wurden bereits{' '}
-                  {listCount && listCount[signaturesId].total.downloads} Listen
-                  heruntergeladen!
-                </p>
-              </FinallyMessage>
             </form>
           );
         }}
