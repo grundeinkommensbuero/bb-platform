@@ -17,46 +17,40 @@ export default ({ visualisations }) => {
   return (
     <>
       {visualisations.map((visualisation, index) => {
-        if (visualisation.campainCode) {
-          return (
-            <CampainVisualisation
-              key={index}
-              index={index}
-              currentCount={
-                currentCounts &&
-                currentCounts[visualisation.campainCode] &&
-                currentCounts[visualisation.campainCode].computed
-              }
-              receivedCount={
-                currentCounts &&
-                currentCounts[visualisation.campainCode] &&
-                currentCounts[visualisation.campainCode].withMixed
-              }
-              showCTA={visualisations.length !== 1 && visualisation.ctaLink}
-              labels={{
-                NEEDED: () => <>Benötigte Unterschriften</>,
-                GOAL_INBETWEEN_TOOLTIP: count => (
-                  <>
-                    Insgesamt benötigt:
-                    <br />
-                    {count} Unterschriften
-                  </>
-                ),
-                GOAL_INBETWEEN: count => (
-                  <>Nächstes Ziel: {count} Unterschriften</>
-                ),
-                CURRENT_COUNT: () => <>Gesammelte Unterschriften</>,
-                CTA: () => <>Mitmachen</>,
-              }}
-              currency="Unterschriften"
-              {...visualisation}
-            />
-          );
-        }
-        if (visualisation.startnextId) {
-          return <CrowdFundingVisualistation key={index} {...visualisation} />;
-        }
-        return null;
+        return (
+          <CampainVisualisation
+            key={index}
+            index={index}
+            currentCount={
+              currentCounts &&
+              currentCounts[visualisation?.campainCode] &&
+              currentCounts[visualisation?.campainCode].computed
+            }
+            receivedCount={
+              currentCounts &&
+              currentCounts[visualisation?.campainCode] &&
+              currentCounts[visualisation?.campainCode].withMixed
+            }
+            showCTA={visualisations.length !== 1 && visualisation.ctaLink}
+            labels={{
+              NEEDED: () => <>Benötigte Unterschriften</>,
+              GOAL_INBETWEEN_TOOLTIP: count => (
+                <>
+                  Insgesamt benötigt:
+                  <br />
+                  {count} Unterschriften
+                </>
+              ),
+              GOAL_INBETWEEN: count => (
+                <>Nächstes Ziel: {count} Unterschriften</>
+              ),
+              CURRENT_COUNT: () => <>Gesammelte Unterschriften</>,
+              CTA: () => <>Mitmachen</>,
+            }}
+            currency="Unterschriften"
+            {...visualisation}
+          />
+        );
       })}
     </>
   );
