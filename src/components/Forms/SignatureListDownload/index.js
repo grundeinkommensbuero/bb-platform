@@ -3,6 +3,7 @@ import { Form, Field } from 'react-final-form';
 import { TextInputWrapped } from '../TextInput';
 import { validateEmail, addActionTrackingId, trackEvent } from '../../utils';
 import s from './style.module.less';
+import cN from 'classnames';
 import { CTAButton, CTAButtonContainer } from '../../Layout/CTAButton';
 import { LinkButton, InlineButton } from '../Button';
 import { FinallyMessage } from '../FinallyMessage';
@@ -12,6 +13,7 @@ import { useSignUp } from '../../../hooks/Authentication';
 import AuthContext from '../../../context/Authentication';
 import AuthInfo from '../../AuthInfo';
 import DownloadListsNextSteps from '../DownloadListsNextSteps';
+import { useSignatureListCount } from '../../../hooks/Api/Signatures/Get';
 
 const trackingCategory = 'ListDownload';
 
@@ -20,6 +22,7 @@ export default ({ signaturesId }) => {
   const [signUpState, signUp] = useSignUp();
   const [email, setEmail] = useState();
   const { userId } = useContext(AuthContext);
+  const listCount = useSignatureListCount();
 
   useEffect(() => {
     // If user was registered proceed by creating list
@@ -117,6 +120,16 @@ export default ({ signaturesId }) => {
         render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
+              <FinallyMessage
+                className={cN(s.amountOfDownloads)}
+                preventScrolling={true}
+              >
+                <p>
+                  Bisher wurden schon{' '}
+                  {listCount && listCount[signaturesId].total.downloads} Listen
+                  heruntergeladen!
+                </p>
+              </FinallyMessage>
               <div className={s.inputWrapper}>
                 {!userId ? (
                   <>

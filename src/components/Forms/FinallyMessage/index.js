@@ -18,9 +18,9 @@ export const FinallyMessage = ({
   const messageRef = useRef(null);
 
   return (
-    <div className={cN(s.container, className)}>
+    <div className={cN(s.container)}>
       {state === 'success' && <HurrayCrowd />}
-      <div className={s.message} ref={messageRef}>
+      <div className={cN(s.message, className)} ref={messageRef}>
         <div
           className={cN(s.messageInner, {
             [s.blinkShort]: state === 'success' || state === 'error',
