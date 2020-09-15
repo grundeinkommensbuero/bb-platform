@@ -138,7 +138,7 @@ function Template({ children, sections }) {
           <SectionInner className={s.countdown}>
             Die Seite geht bald live!{' '}
             <Countdown
-              date={new Date('2020-09-16T12:00:00')}
+              date={new Date('2020-09-16T11:00:00')}
               renderer={({ hours, minutes, seconds }) => (
                 <div>
                   {hours}h {minutes}m {seconds}s
