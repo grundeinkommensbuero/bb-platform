@@ -4,7 +4,7 @@ import Layout from '../Layout';
 import { Helmet } from 'react-helmet-async';
 import MatomoTrackingStuff from './MatomoTrackingStuff';
 
-const URL = 'https://expedition-grundeinkommen.de';
+const URL = 'https://brandenburg-mitbestimmen.de';
 
 export default ({ data, location }) => {
   const page = data.contentfulStaticContent;

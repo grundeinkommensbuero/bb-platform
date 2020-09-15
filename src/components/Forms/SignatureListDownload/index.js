@@ -53,9 +53,8 @@ export default ({ signaturesId }) => {
     return (
       <FinallyMessage state="error">
         Da ist was schief gegangen. Melde dich bitte bei uns{' '}
-        <a href="mailto:support@expedition-grundeinkommen.de">
-          {/* TODO: Change email */}
-          support@expedition-grundeinkommen.de
+        <a href="mailto:support@brandenburg-mitbestimmen.de">
+          support@brandenburg-mitbestimmen.de
         </a>
         .
       </FinallyMessage>
@@ -67,8 +66,8 @@ export default ({ signaturesId }) => {
       <>
         {!anonymous ? (
           <p>
-            Juhu! Die Unterschriftslisten und unser Sammelleitfaden sind in
-            deinem Postfach. Du kannst sie dir auch{' '}
+            Die Unterschriftslisten und unser Sammelleitfaden sind in deinem
+            Postfach. Du kannst sie dir auch{' '}
             <a target="_blank" rel="noreferrer" href={pdf.url}>
               direkt im Browser herunterladen
             </a>{' '}
@@ -76,7 +75,6 @@ export default ({ signaturesId }) => {
           </p>
         ) : (
           <p>
-            Juhu!{' '}
             <a target="_blank" rel="noreferrer" href={pdf.url}>
               Hier
             </a>{' '}
@@ -86,7 +84,7 @@ export default ({ signaturesId }) => {
         <DownloadListsNextSteps>
           {!anonymous && signUpState !== 'userExists' && (
             <StepListItem icon="mail">
-              Check deine Mails und klick den Link, damit du dabei bist.
+              Schau in deine Mails und klick den Link, damit du dabei bist.
             </StepListItem>
           )}
           {anonymous && (
