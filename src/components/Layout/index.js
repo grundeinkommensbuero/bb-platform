@@ -3,11 +3,12 @@ import Header from './Header';
 import Footer from './Footer';
 import s from './style.module.less';
 import '../style/base.less';
-import Sections, { ContentfulSection } from './Sections';
+import Sections, { ContentfulSection, Section, SectionInner } from './Sections';
 import { Helmet } from 'react-helmet-async';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Overlay } from '../Overlay';
 import { buildVisualisationsWithCrowdfunding } from '../../hooks/Api/Crowdfunding';
+import Countdown from 'react-countdown';
 
 function Template({ children, sections }) {
   const { contentfulGlobalStuff: globalStuff } = useStaticQuery(graphql`
@@ -118,25 +119,8 @@ function Template({ children, sections }) {
     }
   `);
 
-  // Return list of visualisation definitions with project field for the startnext project data
-  const visualisationsWithCrowdfunding = buildVisualisationsWithCrowdfunding(
-    globalStuff?.overlay?.campainVisualisations
-  );
-
-  // Create new overlay definition
-  const overlayDefninitionWithCrowdfunding = {
-    ...globalStuff.overlay,
-    campainVisualisations: visualisationsWithCrowdfunding,
-  };
-
   return (
     <>
-      {globalStuff.overlayActive && globalStuff.overlay && (
-        <Overlay delay={globalStuff.overlayDelay}>
-          <ContentfulSection section={overlayDefninitionWithCrowdfunding} />
-        </Overlay>
-      )}
-      <Header menu={globalStuff.mainMenu} hasOverlay={!!globalStuff?.overlay} />
       <Helmet
         defaultTitle={globalStuff.siteTitle}
         titleTemplate={`${globalStuff.siteTitle} - %s`}
@@ -150,13 +134,20 @@ function Template({ children, sections }) {
         <html lang="de" />
       </Helmet>
       <main className={s.main}>
-        {children}
-        <Sections sections={sections} />
+        <Section>
+          <SectionInner className={s.countdown}>
+            Die Seite geht bald live!{' '}
+            <Countdown
+              date={new Date('2020-09-16T12:00:00')}
+              renderer={({ hours, minutes, seconds }) => (
+                <div>
+                  {hours}h {minutes}m {seconds}s
+                </div>
+              )}
+            ></Countdown>
+          </SectionInner>
+        </Section>
       </main>
-      <Footer
-        footerText={globalStuff.footerText}
-        footerMenu={globalStuff.footerMenu}
-      />
     </>
   );
 }
