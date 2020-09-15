@@ -8,7 +8,7 @@ import s from './contentfulJsonToHtml.module.less';
 import cN from 'classnames';
 import { Link } from 'gatsby';
 
-const website_url = 'https://expedition-grundeinkommen.de/';
+const website_url = 'https://brandenburg-mitbestimmen.de/';
 
 export function contentfulJsonToHtml(json) {
   const documentToREactComponentsOptions = {
