@@ -22,7 +22,9 @@ export function contentfulJsonToHtml(json) {
       [INLINES.HYPERLINK]: node => {
         const { uri } = node.data;
         const target =
-          (uri.startsWith(website_url) || uri.startsWith('/')) &&
+          (uri.startsWith(website_url) ||
+            uri.startsWith('/') ||
+            uri.startsWith('#')) &&
           !uri.endsWith('.pdf')
             ? '_self'
             : '_blank';
