@@ -134,8 +134,9 @@ export default ({ signaturesId }) => {
                 {!userId ? (
                   <>
                     <p>
-                      Schickt mir die Unterschriftenliste, erinnert mich an das
-                      Zurücksenden und haltet mich auf dem Laufenden.
+                      Schickt mir die Unterschriftenlisten, erinnert mich an das
+                      Zurücksenden und haltet mich über den Erfolg auf dem
+                      Laufenden.
                     </p>
                     <div className={s.textInputContainer}>
                       <Field
@@ -162,7 +163,7 @@ export default ({ signaturesId }) => {
 
               <p className={s.anonymousDownload}>
                 Du willst deine E-Mail-Adresse nicht angeben? Du kannst die
-                Liste{' '}
+                Listen{' '}
                 <InlineButton
                   onClick={() => {
                     createPdf({ campaignCode: signaturesId });
@@ -171,8 +172,8 @@ export default ({ signaturesId }) => {
                 >
                   hier auch anonym herunterladen.
                 </InlineButton>{' '}
-                Allerdings können wir dich dann nicht informieren, wenn deine
-                Unterschriften bei uns eingegangen sind!
+                Allerdings können wir dich dann nicht informieren, wie es weiter
+                geht!
               </p>
             </form>
           );
