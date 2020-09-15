@@ -64,8 +64,8 @@ const Verification = () => {
       title: (
         <>
           {verificationState === 'verifying' && 'Verifizierung...'}
-          {isOk && 'Juhuu - du bist dabei!'}
-          {hasError && 'Oooooops - Verifizierung fehlgeschlagen'}
+          {isOk && 'Du wurdest verifiziert!'}
+          {hasError && 'Verifizierung fehlgeschlagen'}
         </>
       ),
       bodyTextSizeHuge: true,
@@ -103,8 +103,8 @@ const Verification = () => {
                   außerdem falls möglich deinen Browser und die Version:
                   <br />
                   <br />
-                  <a href="mailto:support@expedition-grundeinkommen.de">
-                    support@expedition-grundeinkommen.de
+                  <a href="mailto:support@brandenburg-mitbestimmen.de">
+                    support@brandenburg-mitbestimmen.de
                   </a>
                 </>
               )}
