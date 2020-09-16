@@ -94,7 +94,12 @@ export function CTALinkExternal({
 }) {
   return (
     <LinkButton
-      target={href.startsWith('#') ? '' : '_blank'}
+      target={
+        href.startsWith('#') ||
+        href.startsWith('https://brandenburg-mitbestimmen.de')
+          ? ''
+          : '_blank'
+      }
       className={cN(className, s.button)}
       href={href}
       onClick={() => {
