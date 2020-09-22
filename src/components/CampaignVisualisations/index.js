@@ -45,7 +45,7 @@ export default ({ visualisations }) => {
                 <>Nächstes Ziel: {count} Unterschriften</>
               ),
               CURRENT_COUNT: () => <>Gesammelte Unterschriften</>,
-              CTA: () => <>Mitmachen</>,
+              CTA: () => <>Mehr erfahren</>,
             }}
             currency="Unterschriften"
             {...visualisation}
