@@ -145,6 +145,11 @@ function Template({ children, sections }) {
           name="description"
           content={globalStuff.siteDescription.siteDescription}
         />
+        <meta property="og:title" content={globalStuff.siteTitle} />
+        <meta
+          property="og:description"
+          content={globalStuff.siteDescription.siteDescription}
+        />
         <meta property="og:image" content={globalStuff.ogimage.fixed.src} />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <html lang="de" />
