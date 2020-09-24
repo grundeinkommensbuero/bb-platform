@@ -118,8 +118,7 @@ export default ({ signaturesId }) => {
         render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
-              {/* Design needs to be finalised first */}
-              {/* <FinallyMessage
+              <FinallyMessage
                 className={cN(s.amountOfDownloads)}
                 preventScrolling={true}
               >
@@ -128,7 +127,7 @@ export default ({ signaturesId }) => {
                   {listCount && listCount[signaturesId].total.downloads} Listen
                   heruntergeladen!
                 </p>
-              </FinallyMessage> */}
+              </FinallyMessage>
               <div className={s.inputWrapper}>
                 {!userId ? (
                   <>
