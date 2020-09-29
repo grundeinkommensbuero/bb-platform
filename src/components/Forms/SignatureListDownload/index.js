@@ -118,17 +118,6 @@ export default ({ signaturesId }) => {
         render={({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className={s.form}>
-              {/* Design needs to be finalised first */}
-              {/* <FinallyMessage
-                className={cN(s.amountOfDownloads)}
-                preventScrolling={true}
-              >
-                <p>
-                  Bisher wurden schon{' '}
-                  {listCount && listCount[signaturesId].total.downloads} Listen
-                  heruntergeladen!
-                </p>
-              </FinallyMessage> */}
               <div className={s.inputWrapper}>
                 {!userId ? (
                   <>
@@ -159,6 +148,20 @@ export default ({ signaturesId }) => {
                   </CTAButton>
                 </CTAButtonContainer>
               </div>
+
+              <FinallyMessage
+                className={cN(s.amountOfDownloads)}
+                preventScrolling={true}
+              >
+                <p>
+                  Es wurden <br></br>schon{' '}
+                  <span>
+                    {listCount && listCount[signaturesId].total.downloads}
+                  </span>{' '}
+                  Listen heruntergeladen!
+                </p>
+              </FinallyMessage>
+
               <p className={s.anonymousDownload}>
                 Du willst deine E-Mail-Adresse nicht angeben? Du kannst die
                 Listen{' '}
