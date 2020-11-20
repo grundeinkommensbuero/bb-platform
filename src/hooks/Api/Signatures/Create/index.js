@@ -28,7 +28,7 @@ export const useCreateSignatureList = () => {
     anonymous,
     data => {
       // If non-anonymous download
-      if (!data.anonymous && (userId || data.email)) {
+      if (!data.anonymous && userId) {
         data.token = token;
         data.userId = userId;
 
@@ -67,7 +67,7 @@ const createSignatureListAnonymous = async (
 // Function to create (or get) a signature list
 // userId or email is passed
 const createSignatureList = async (
-  { userId, email, campaignCode },
+  { userId, email, token, campaignCode },
   setState,
   setPdf
 ) => {
@@ -77,7 +77,7 @@ const createSignatureList = async (
     const data = { userId, email, campaignCode };
 
     // call function to make api request, returns signature list if successful (throws error otherwise)
-    const signatureList = await makeApiCall(data);
+    const signatureList = await makeApiCall(data, userId, token);
 
     setState('created');
     setPdf(signatureList);
@@ -91,19 +91,24 @@ const createSignatureList = async (
   }
 };
 
+// Function which calls our api to create a (new) signature list
+// We use different endpoints: /signatures for anonymous lists, and
+// /users/{userId}/signatures for personalized lists
+
 // Returns the list {id, url} or null
-const makeApiCall = async data => {
+const makeApiCall = async (data, userId, token) => {
   // Make api call to create new singature list and get pdf
   const request = {
     method: 'POST',
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: token,
     },
     body: JSON.stringify(data),
   };
 
-  const endpoint = '/signatures';
+  const endpoint = userId ? `/users/${userId}/signatures` : '/signatures';
 
   const response = await fetch(`${CONFIG.API.INVOKE_URL}${endpoint}`, request);
   const json = await response.json();
