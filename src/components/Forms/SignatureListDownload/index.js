@@ -14,27 +14,51 @@ import AuthContext from '../../../context/Authentication';
 import AuthInfo from '../../AuthInfo';
 import DownloadListsNextSteps from '../DownloadListsNextSteps';
 import { useSignatureListCount } from '../../../hooks/Api/Signatures/Get';
+import { EnterLoginCode } from '../../Login/EnterLoginCode';
 
 const trackingCategory = 'ListDownload';
 
 export default ({ signaturesId }) => {
   const [state, pdf, anonymous, createPdf] = useCreateSignatureList();
-  const [signUpState, signUp] = useSignUp();
-  const [email, setEmail] = useState();
-  const { userId } = useContext(AuthContext);
   const listCount = useSignatureListCount();
+  const [signUpState, signUp] = useSignUp();
+  const [loginCodeRequested, setLoginCodeRequested] = useState();
+  const { isAuthenticated, userId } = useContext(AuthContext);
 
   useEffect(() => {
-    // If user was registered proceed by creating list
-    if (signUpState === 'success') {
-      createPdf({ email, campaignCode: signaturesId });
-    } else if (signUpState === 'userExists') {
+    // Create pdf if user has authenticated after requesting their login code.
+    if (isAuthenticated && typeof loginCodeRequested !== 'undefined') {
       createPdf({
-        email,
         campaignCode: signaturesId,
       });
     }
-  }, [signUpState]);
+  }, [isAuthenticated, loginCodeRequested]);
+
+  // After user starts sign in process or if they are identified and request the list,
+  // show EnterLoginCode component
+  if (
+    (signUpState === 'success' || loginCodeRequested) &&
+    !isAuthenticated &&
+    !anonymous
+  ) {
+    return (
+      <EnterLoginCode preventSignIn={signUpState === 'success'}>
+        <p>
+          Zur Verifizierung gib bitte den Code ein, den wir dir gerade in einer
+          E-Mail geschickt haben. Alternativ kannst du auch eine Liste{' '}
+          <InlineButton
+            onClick={() => {
+              createPdf({ campaignCode: signaturesId, anonymous: true });
+            }}
+            type="button"
+          >
+            hier
+          </InlineButton>{' '}
+          anonym herunterladen.
+        </p>
+      </EnterLoginCode>
+    );
+  }
 
   if (state === 'creating' || signUpState === 'loading') {
     return (
@@ -82,11 +106,6 @@ export default ({ signaturesId }) => {
           </p>
         )}
         <DownloadListsNextSteps>
-          {!anonymous && signUpState !== 'userExists' && (
-            <StepListItem icon="mail">
-              Schau in deine Mails und klick den Link, damit du dabei bist.
-            </StepListItem>
-          )}
           {anonymous && (
             <StepListItem icon="download">
               <LinkButton target="_blank" href={pdf.url}>
@@ -103,15 +122,24 @@ export default ({ signaturesId }) => {
     <>
       <Form
         onSubmit={e => {
-          // If user is identified
-          if (userId !== undefined) {
-            // If user is authenticated
-            createPdf({ campaignCode: signaturesId });
+          // If user is authenticated
+          if (isAuthenticated) {
+            createPdf({
+              campaignCode: signaturesId,
+            });
             return;
           }
 
-          // If user is not identified, attempt to create user
-          setEmail(e.email);
+          // If user is identified
+          if (userId) {
+            // Show EnterLoginCode
+            setLoginCodeRequested(true);
+            return;
+          } else {
+            setLoginCodeRequested(false);
+          }
+
+          // If user is not identified
           signUp({ newsletterConsent: true, ...e });
         }}
         validate={values => validate(values, userId)}
